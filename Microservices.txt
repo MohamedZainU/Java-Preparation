@@ -1,0 +1,58 @@
+Microservices
+
+large application to collection of small functional modules
+
+- each service has different unique fns
+- through api it communicates with other services
+- each service can be built using diff languages according to devs preference
+
+why and when microservices
+
+For large complex projects this the best
+
+Microservices is needed when monolithic applications needs to be optimized and modernized
+
+
+
+Microservices is nothing but a large application has break down into smaller services with each having their own task
+
+In here each service is not dependent on another 
+
+Suppose imagine a team and they are working on a big project in this case one team can focus on search bar service example here i mean and another can focus on payments service like this it goes on each team they can start the work without depending on another team
+
+And here a single big application can have different languages that has been used on it like a payment service can be developed by nodejs dev and search bar by java dev like that
+
+and if payment service goes down due to data overload or something it doesn't affects other services
+
+each service will communicate via api gateway
+
+- Load Balancer - Suppose the order-service has 3 instance and the incoming request is 2 or 3 or 1 it divides that request and sends to the order service based on its need
+
+- API Gateway - is nothing but from client the request starts from api agteway and then it moves onto other services it acts like a gateway between client and services have to include gateway and eureka server dependancies for this
+
+- Service Registry - so creating a service for eureka server separately is called service registry
+
+
+Dependancies
+- OpenFeign
+- Eureka
+
+REST Template
+
+@EnableEurekaServer - in main
+@FeignClient - in interface
+
+Eureka server is nothing but the services in microservices even tho they run in different port number they will connect with eureka and they can communicate through interface which has feign 
+to discover and manage different services
+
+@FeignClient("") mention the service you gonna integrate
+
+and declare all the methods without body
+
+will create a object for that interface which we are going to call from one service to another
+
+.getBody() - converts ResponseEntity<Questions> to Questions
+
+WebClinet helps in Asynchronous like if a service calls the another service the calling service will wait in synchronous but in async it doesn't wait both happens at same time
+
+Feign Client primarily works synchronously by default, but it can be configured to support asynchronous calls using CompletableFuture or Reactive types 

@@ -1,0 +1,13 @@
+Java 8 Features
+
+1. Functional Interfaces
+2. Lambda Expressions
+3. Optional Class
+4. Streams api
+5. New Date and Time API
+6. Allows interfaces to have default and static methods
+
+ConcurrentHashMap, on the other hand, allows multiple threads to safely read and write data without locking the entire map.
+
+map.putIfAbsent("Rust",2021)
+map.forEach((key,val) -> System.out.println(key+" "+val))

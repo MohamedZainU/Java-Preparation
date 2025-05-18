@@ -1,0 +1,45 @@
+python used for multipurpose Data Analytics,ML,Web Dvelopment,Testing
+
+type() fn which helps in assigning respective datatypes without mentioning them
+
+follow only 1 intendation below for loop print stmt
+
+i * "*" prints like how much i we wanna print for patterns
+
+== for String compare
+
+mylist[0:3] gives 3 elements from 0 1 2
+
+append() add elements in the list
+
+insert() add elements at index (ind,ele)
+
+s = "Hello"  -> print(s[::-1]) for reverse s.strip() removes space replace("Hello","World")  
+
+join(words) joins the strings that is present in that list
+
+in checks the contents inside the list like it checks overall strings list
+
+len() gives the length of that string
+
+tuple is () we enclose it with this the inbuilt methods comes from min(tuple) max(tuple) sum(tuple)is count(2) returs how many items 2 has occurred in tuple
+
+
+to convert list to tuple just use tuple(myList)
+
+key,val = map.popitem()
+
+
+collection of decision trees that groups together to make predictions
+
+multiple decision trees uses sample data each tree is trained on different subset of data algorithm randomly selects subset of data rather than using all available data 
+
+group of friends for advice on where to go for vacation but based on the inputs they gave you take the final decision
+
+advantages
+provides very accurate predictions
+cab handle missing data without compromising accuracy
+
+disadvantages
+computationally expensive especially with large number of trees
+harder to interpret compared to decision trees

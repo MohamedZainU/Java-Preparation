@@ -1,0 +1,15 @@
+Status Codes
+
+200 - everything went well on server side
+201 - something new data is created
+204 - scenario where we sent delete request it worked but there is no content to send back
+400 - Bad Request is a request that doesn't makes sense
+401 - Unauthorized request lacks valid authentication credentials.
+403 - Forbidden Request is Valid but the credential lacks the permission
+404 - NOT Found Requested file ain't there check end points
+429 - TOO Many Request to server side
+500 - Internal Server Errors something's wrong on server side we have to verify carefully
+502 - Bad Gateway like the request sent to the proxy server and then it forwards to main but there is no response from main
+503 - Service is down
+
+the 300's are redirection codes that helps the traffic controller

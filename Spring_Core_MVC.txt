@@ -1,0 +1,585 @@
+Spring Core annotations has been divided into 2
+
+1. DI-Related Annotations
+2. Context Configuration Annotations
+
+org.springframework.beans.factory.annotation - DI Related Annotations
+
+org.springframework.context.annotation - Context Configuration Annotations
+
+Some of the DI-Related Annotations that are available in Spring Framework are listed below
+
+@Autowired
+@Qualifier
+@Primary
+@Bean
+@Lazy
+@Required
+@Value
+@Scope
+@Lookup, etc.
+
+@Autowired -  We use @Autowired to mark the dependency that will be injected by the Spring container
+
+
+
+Field Injection
+
+class Student { 
+    @Autowired
+    Address address; 
+}
+
+
+Constructor injection
+
+class Student { 
+	Address address; 
+
+	@Autowired
+	Student(Address address) { 
+		this.address = address; 
+	} 
+}
+
+Setter injection
+
+class Student { 
+	Address address; 
+
+	@Autowired
+	void setaddress(Address address) { 
+		this.address = address; 
+	} 
+}
+
+
+
+
+Example
+
+If a car needs an engine (dependency is mandatory)a class cannot work without it, 
+use constructor injection. If (dependency is optional) like GPS its like a extra feature, 
+use setter injection (utility dependancy). For a logger to track car usage, use field injection when simplicity is preferred.
+
+
+@Qualifier Annotation
+
+The @Qualifier annotation is used to resolve the autowiring conflict when there are multiple beans of the same type.
+
+package com.example.animals;
+ 
+public interface Animal {
+    String speak();
+}
+ 
+package com.example.animals;
+ 
+import org.springframework.stereotype.Component;
+ 
+@Component("dog")
+public class Dog implements Animal {
+    @Override
+    public String speak() {
+        return "Woof!";
+ 
+    }
+ 
+package com.example.animals;
+ 
+import org.springframework.stereotype.Component;
+ 
+@Component("cat")
+public class Cat implements Animal {
+    @Override
+    public String speak() {
+        return "Meow!";
+ 
+    }
+ 
+ 
+package com.example.service;
+ 
+import com.example.animals.Animal;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+ 
+@Component
+public class AnimalService {
+ 
+    @Autowired
+    @Qualifier("dog")  // Specify the "dog" bean
+    private Animal animal;
+ 
+    public void makeAnimalSpeak() {
+        System.out.println(animal.speak());
+    }
+}
+ 
+ 
+}
+}
+
+
+If you didn’t use @Qualifier, it will throw NoUniqueBeanDefinitionException.
+
+@Primary annotation
+
+This indicates that a particular bean should be given preference when multiple beans are candidates to be autowired to a single-valued dependency.
+
+we can take above as example
+
+package com.example.animals;
+ 
+public interface Animal {
+    String speak();
+}
+ 
+package com.example.animals;
+ 
+import org.springframework.stereotype.Component;
+ 
+@Component("dog")
+@Primary
+public class Dog implements Animal {
+    @Override
+    public String speak() {
+        return "Woof!";
+ 
+    }
+ 
+package com.example.animals;
+ 
+import org.springframework.stereotype.Component;
+ 
+@Component("cat")
+public class Cat implements Animal {
+    @Override
+    public String speak() {
+        return "Meow!";
+ 
+    }
+ 
+ 
+package com.example.service;
+ 
+import com.example.animals.Animal;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+ 
+@Component
+public class AnimalService {
+ 
+    @Autowired // it will inject dog class bean cause @Primary annotation is in dog class
+    private Animal animal;
+ 
+    public void makeAnimalSpeak() {
+        System.out.println(animal.speak());
+    }
+}
+ 
+ 
+}
+}
+
+
+And if we mention @Qualifier("cat") and using @Primary in Dog it will inject the cat class bean Qualifier takes Precedence over primary
+
+@Bean
+
+The @Bean annotation in the Spring Framework is used to indicate that a method returns an object that will be managed by the Spring IoC container. It's a method-level annotation that's similar to the XML <bean/> element. 
+
+It allows defining beans that are not automatically detected via @Component.
+
+ 
+@Configuration
+public class AppConfig {
+ 
+    @Bean
+    public GreetingService greetingService() {
+        return new GreetingService();
+    }
+}
+ 
+class GreetingService {
+    public void greet() {
+        System.out.println("Hello, welcome to Spring!");
+    }
+}
+
+@Lazy
+
+It postpones the creation of the object until it is first requested. This is useful when the object creation is resource-intensive or when the object is not immediately required during the application startup.
+
+@Configuration
+public class AppConfig {
+ 
+    @Bean
+    @Lazy
+    public ExpensiveService expensiveService() {
+        return new ExpensiveService();
+    }
+}
+ 
+class ExpensiveService {
+    public ExpensiveService() {
+        System.out.println("ExpensiveService Initialized!");
+    }
+ 
+    public void performTask() {
+        System.out.println("Task performed by ExpensiveService!");
+    }
+}
+
+@Required
+
+The @Required annotation in spring is a method-level annotation used in the setter method of a bean property and therefore making the setter-injection compulsory. 
+
+
+@Component
+public class Student {
+ 
+    private String name;
+ 
+    @Required
+    public void setName(String name) {
+this.name = name;
+    }
+ 
+    public void displayInfo() {
+        System.out.println("Student Name: " + name);
+    }
+}
+
+@Value
+
+The @Value annotation is used to inject values into Spring beans from property files, environment variables, or literal values.
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+ 
+@Component
+public class ConfigExample {
+ 
+    // Injecting a value from a properties file
+@Value("${app.name}")
+    private String appName;
+ 
+    // Injecting a hardcoded value
+    @Value("Hello, Spring!")
+    private String greetingMessage;
+ 
+    public void printValues() {
+        System.out.println("App Name: " + appName);
+        System.out.println("Greeting Message: " + greetingMessage);
+    }
+}
+
+
+app.name=My Spring Application
+
+@Scope
+
+The @Scope annotation is used to define the scope of a Spring bean, i.e., how long a bean lives and how it is shared across the application.
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+ 
+@Component
+@Scope("prototype")  // Defines the bean's scope as prototype
+public class UserService {
+ 
+    public UserService() {
+        System.out.println("UserService bean created");
+    }
+ 
+    public void serve() {
+        System.out.println("Serving user...");
+    }
+}
+ 
+Common Bean Scopes in Spring
+1. singleton (Default)
+2. prototype
+3. request
+4. session
+5. application
+6. websocket
+ 
+Singleton - No matter how many times you request this bean, only one instance is used
+ 
+Prototype - Every call will create a new object.
+ 
+Request - A new instance is created for each HTTP request.
+ 
+Session - A new instance is created per user session.
+ 
+Application - One instance is shared across all sessions and requests.
+ 
+Websocket - A new bean is created for each WebSocket connection.
+ 
+
+@Lookup
+
+The @Lookup annotation is used to override methods for dependency injection and to create prototype beans within singleton beans.
+
+import org.springframework.beans.factory.annotation.Lookup;
+import org.springframework.stereotype.Component;
+ 
+@Component
+public class SingletonBean {
+ 
+    // @Lookup allows Spring to inject a new instance of PrototypeBean
+    @Lookup
+    public PrototypeBean getPrototypeBean() {
+        // Spring will override this method and inject a new instance of PrototypeBean
+        return null;
+    }
+ 
+    public void callPrototypeBean() {
+        PrototypeBean prototypeBean = getPrototypeBean();
+        prototypeBean.printMessage();
+    }
+}
+ 
+@Component
+public class PrototypeBean {
+    public void printMessage() {
+        System.out.println("Prototype bean created!");
+    }
+}
+
+@Profile
+
+@Profile is used to define beans for different environments (e.g., development, testing, production
+
+@Component
+@Profile("dev")
+public class DevDataSource {
+    public DevDataSource() {
+        System.out.println("Development DataSource created");
+    }
+}
+ 
+@Component
+@Profile("prod")
+public class ProdDataSource {
+    public ProdDataSource() {
+        System.out.println("Production DataSource created");
+    }
+}
+ 
+# application.properties
+spring.profiles.active=dev
+
+
+@Import
+
+@Import allows importing other configuration classes into the current configuration.
+
+@Configuration
+public class AppConfig {
+    @Bean
+    public String appName() {
+        return "My Application";
+    }
+}
+ 
+@Configuration
+@Import(AppConfig.class)
+public class MainConfig {
+}
+
+@ImportResource
+
+@ImportResource is used to load XML-based Spring configurations into Java-based configuration.
+
+
+<!-- beans.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans">
+    <bean id="myBean" class="com.example.MyBean"/>
+</beans>
+ 
+@Configuration
+@ImportResource("classpath:beans.xml")
+public class Config {
+}
+
+@PropertySource
+ 
+
+@PropertySource is used to load properties files into Spring's
+
+
+# app.properties
+app.name=My Spring App
+ 
+@Configuration
+@PropertySource("classpath:app.properties")
+public class AppConfig {
+    @Value("${app.name}")
+    private String appName;
+ 
+    @Bean
+    public void printAppName() {
+        System.out.println(appName);
+    }
+}
+ 
+
+Spring MVC
+
+Spring MVC is like a set of tools that helps you build these web applications using Java Programming Language.Now, think of annotations as special notes or instructions that you attach to your code. These notes tell Spring MVC how different parts of your code should work together. They're like little tags that help Spring MVC understand your code better and make it easier for you to build your web applications.
+
+
+@RequestMapping
+
+The @RequestMapping annotation is a class-level annotation. It is used to map HTTP requests to their respective methods. The request mapping annotation is a generic one. This means that it can be used regardless of the request being GET, POST, PUT, DELETE, or PATCH. You can think of the request mapping as an index page.
+
+
+@RequestMapping(value="/api/v1/geeks")
+class RequestMappingDemo {
+  @GetMapping("/getMessage")
+  public String getMessage() {
+    return "GeeksForGeeks";
+  }
+  @GetMapping("/getGreeting")
+  public String sayHello() {
+    return "Hello";
+  }
+}
+
+@Controller
+
+The @Controller annotation is a specialized form of @Component annotation. It is a class level annotation. It simply allows for classes marked as @Configuration to be auto detected by the spring application context. Without the @Controller annotation, you would get an error claiming that no beans were found for the respective class. 
+
+@ResponseBody
+
+The @ResponseBody annotation can be applied to classes as well as methods. This annotation has to do with what is being sent back to the user as an output. It is used for automatic serialization of the output by a method in the controller layer.
+
+
+@ResponseBody
+@RequestMapping(value="/gfg")
+public class ResponseBodyDemo {
+  @GetMapping("/geek1")
+  public String method1() {
+    return "I am Geek.";
+  }
+  @GetMapping("/geek1/number")
+  public int method2() {
+    return 1;
+  }
+}
+
+
+{
+    "output": "I am Geek."
+}
+
+{
+    "output": 1
+}
+
+
+@RestController
+
+This annotation is simply the combination of @Controller and @ResponseBody annotation. With the @RestController annotation, you no longer need to annotate each and every method with @ResponseBody.
+
+
+@RequestParam
+
+The @RequestParam annotation can be used to assign variables to query parameters in Http Requests. Suppose that we want to access a URL with one or more query parameters in it. The URL we visit is: http://localhost:8080/api/v1/geeks?firstname=John&lastname=doe
+
+Now, we want to extract firstname and lastname from this URL. This is where the @RequestParam URL comes in. Let us understand with a code sample:
+
+//demo URL=http://localhost:8080/api/v1/geeks?firstname=John&lastname=doe 
+@RequestMapping(value="/api/v1")
+@RestController
+public class RequestParamDemo {
+  @GetMapping("/geeks")
+  public void demo(@RequestParam("firstname") String fname, @RequestParam("lastname") String lname) {
+    System.out.println(fname+" "+lname);
+  }
+}
+//Output= John Doe
+
+
+
+@PathVariable
+
+http://localhost:8080/index/page1 when the user want to view page1. Similarly there are n other pages that can be viewed. The URL for these pages is similar to that of page1 .../index/page2 to ../index/pageN. Now, to generalize what page we want to load based on user's choice,
+
+@RestController
+@RequestMapping(value="/index")
+public class PathVariableDemo {
+  @GetMapping("/{page}
+  public String getPage(@PathVariable String pageNumber) {
+    return "You visited "+pageNumber;
+  }
+}
+
+
+@RequestBody
+
+
+The @RequestBody annotation is used to bind the HTTP request body to a method parameter in a controller. It allows the controller to read the data sent in the body of an HTTP request and bind it to a Java object, which can be a POJO, a map, or any other data structure. This is particularly useful for handling POST and PUT requests where the client sends data in the body of the request.
+
+
+@GetMapping("/userData")
+public String getUserAndId(@RequestBody Map<String,String> userData) {
+  return "The name of the user is= "+userData.get("name")+" and their id is= "+userData.get("id"); 
+}
+
+
+ @CookieValue
+
+
+The @CookieValue annotation is used to tie the value of http cookies to the method arguments of controllers in Spring MVC.
+
+
+@RestController
+@RequestMapping
+public class Demo {
+  @GetMapping("/user")
+  public void getCookieValue(@CookieValue("JSESSIONID") String jSessionId) {
+    System.out.println("The session id is: "+jSessionId);
+  }
+}
+
+
+@CrossOrigin
+
+
+The @CrossOrigin is very imported in Spring. If you have a spring backend and a a JavaScript frontend in react, angular or vue and on trying to communicate with the backend you receive a CORS error, then it is likely that you have not used the @CrossOrigin annotation.
+
+@CrossOrigin("http://localhost:3000")
+@GetMapping
+public String getMessage() {
+  return "Hello World";
+}
+
+
+@ExceptionHandler
+
+
+This annotation is used to handle the exceptions in controller classes. Should any exceptions occur, the @ExceptionHandler annotation is used to catch these exceptions and display messages to the users accordingly. The @ExceptionHandler is also called as a Local Exception Handler in spring, because it handles exceptions at the class level.
+
+
+@Controller
+public class MyClass {
+  //...controllers
+  
+  //...Exception Handlers
+  @ExceptionHandler(NullPointerException.class)
+  public String getErrorMessage1(NullPointerException ex) {
+    return "Exception is:" + ex.getMessage();
+  }
+  @ExceptionHandler(ArrayIndexOutOfBoundsException.class)
+  public String getErrorMessage2(ArrayIndexOutOfBoundsException ex) {
+    return "Exception is:" + ex.getMessage();
+  }
+}
+
+ 

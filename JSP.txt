@@ -1,0 +1,1 @@
+We write html code in Java file in Servlet but in JSP we write Java code in html but we have to use delimeter <% %> inside those we write Java logic

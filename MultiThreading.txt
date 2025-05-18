@@ -1,0 +1,9 @@
+Multithreading
+
+Thread and Runnable helps in Multi Threading in Java
+
+Thread is class which implements Runnable interface
+
+A class which is going to be a thread it should extend thread ir implement Runnable or we can use anonymous class to implement this as well since Runnable is a functional interface
+
+when we use thread the calling should be start() and the method in class should be named as run() this is how it works 

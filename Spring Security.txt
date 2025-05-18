@@ -1,0 +1,65 @@
+Spring Security - Spring Web, Spring Security, Spring Dev Tools
+
+These dependency Gives the login form 
+
+Client -> Filter -> DispatchetServlet -> Controller
+
+Session ID - changes for each Request
+
+we can get Session ID via HttpServlet Request object .getSession().getId()
+
+we can change user name and password to security using application.properties
+
+CSRF toke - Cross site Request Forgery
+
+Session ID - it remains the same until the session expires or the user logs out.
+
+Inside SecurityFilterChain method we write these 
+
+CSRF token is nothing but to prevent from Session hack we send each time a new token to access the website
+
+for PUT POST and DELETE we should use CSRF token
+
+the file we mention and we name @Configuration @EnableWebSecurity is the file for config and .csrf()
+.authorizeHttpRequests() handles the permission for any role
+.hasRole("ADMIN") gives permission to Admin
+
+.anyRequest().authenticated() - Requires authentication for all Request
+
+where we set 
+@Configuration
+@EnableWebSecurity
+it overrides the default security dependancy login page and we write our own logic on it
+
+Session security policy
+
+always - it creates the session always
+never - it doesn't creates the session 
+ifrequired - only if it is required
+stateless - no session is created or used request must be authenticated via token
+
+UserDetailsService is an interface in Spring Security
+
+UserDetailsService retrieves user details
+
+AuthenticationProvider - authenticates user credentials.
+
+implementing bycrypt so that password is encrypted
+
+we implement bcrypt when we set user password and create object for Bcrypt and then .encode we pass the user.getpassword()
+
+for validating password in Authenticationprovider just use new BcryptEncoder(12) that's it
+
+JWT - Json Web Token
+
+Json - JavaScript object notation
+
+
+RSA ES - user Asymmetric cryptography (public and private)
+HS - Symmetric cryptography ( shared key )
+
+we need map subject(username) issueDate(current time) expiration(current time * 60 * 60 * 10 in signwith we have to generate key for that as well by converting them to bytes and using hmacShaKeyFor()
+
+
+In my Project there is a service called EmailRetrievalService and it has a method extractusername() what  it does means it takes HttpServletRequest from thet it gets the token separate and from that it gets the email of that user and by getting that email we can get the user object by Jpa Repo findByEmail() method which return user and this how i have implemented spring security in my project
+

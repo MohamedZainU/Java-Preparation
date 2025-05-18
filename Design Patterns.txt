@@ -1,0 +1,32 @@
+Design Patterns
+
+Factory Design - Creational Design pattern
+
+So Factory Design pattern is nothing but what object we want we should mention and that particular object gets generated based on user input the object will be given by method of a Factory class
+
+Builder Design - Creational Design pattern
+
+So builder design pattern is nothing but we can se contents based on user needs instead of setting up all contents with setter methods but is handled by different class but the setter method here returns the object of that handling class but in the end it gets converted to the model object and then it sets the content in the model object
+
+Adapter Design Pattern - Structural Design Pattern
+
+So imagine there is a pen class and a pilotpen class and the scenario is requires object of Pen class but we have only Pilot Pen so what we do is we create a PenAdaptor which impkements pen interface since it has to implement the method for pen interface inside that we will call the pilot pen method and it returs the string so from Penadapter it goes to pikotpen and it returns the pilot pen string this is called Adaper Design pattern
+
+Composite Design Pattern - Structural Design Pattern
+
+
+So there is a component and there is a composite class inside composite class we have List<Component> and addComponent method so we add contentsv for Compinents class as well and composite as well and in composite we can add componets object and add them in list so we can show the list of components contents as well as composite content in composite class this is how composite design pattern works
+
+Prototype - Creational Design pattern
+
+
+In prototyoe there is a cocept called shadow clonning and deep clonning like shadow clonning we implement Clonnable interface and we override and that method retirns the Object class but we type cast it to our own class 
+
+Deep clonning is nothing but we write changes in overruding method like will create a loop and a new object by iterating the loop we set the contents to the new object and then we pass that object 
+
+so after that even if we remove in the first object it won't disturb the second one
+
+
+Observable - Behavioral Design pattern
+
+So Observable Design pattern is nothing but for example there is a Channel and Subscriber in Subscriber there is a List of Subscriber in Channel and Channel object in subscriber update method and inside Channel we have subscribe unsubscribe both takes subscribe object as a parameter and then adds in subscribe and removes in unsubscribe and notify will call each object subscriber method in loop and in Subscriber we have a subscribeChannel(Channel c) we have Channel object and we set the Channel object in Subscriber so this is the architecture of how OIbservable design pattern works
