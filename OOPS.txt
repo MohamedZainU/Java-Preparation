@@ -1,0 +1,12 @@
+OOPS
+
+1. public is accessible in every package
+2. private is accessible within same class
+3. protected properties is accessible within same package and sub class of different package
+3. default only accessible within same package 
+
+Abstract class can contains both implemented and unimplemented (abstract) methods.
+
+Abstraction acts as a blueprint, providing a general structure while allowing developers to implement details as needed.
+
+So method with no implementation only seen by user but internally it gets extended by diff class and privides the implementation for that

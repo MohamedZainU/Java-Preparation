@@ -1,0 +1,72 @@
+Exceptions
+
+@RestControllerAdvice - Global Exception Handler
+
+with each method below this we can handle exceptions that happens across all the applications 
+
+To handle exception in Controller separately use below as well and create a method that handles that
+
+@ExceptionHandler(NullPointerException.class) - we need to mention the Exception
+@ResponseStatus(HttpStatus.BAD_REQUEST) - the response its gonna show
+
+throw vs throws
+
+if(age<18){
+throw new IllegalArgumentException("Age must be 18 or above!");  -> throws the exception inside the method manually
+}
+
+public static void readFile(String filename) throws IOException -> it won't throw the exception but checks
+
+checked exception - IOException,SQLException,InterruptedException
+
+unchecked exception - Arithmetic , NullPointer , ArrayIndexOutOfBounds 
+
+Collection - It is a root interface in the Java Collection framework. for data structures like List, Set, and Queue
+
+Collections - It is a class that provides static utility methods Contains methods like sort(), shuffle()
+
+what is collection framework
+
+The Collection Framework cotains buil in classes and interfaces that help store, manage, and manipulate groups of objects efficiently.
+
+
+Single Responsibility Principle (SRP) - each class handles only 1 operation for eg: add method
+Open-Closed Principle (OCP) - open for extension but closed for modification. for eg: open means the method from abreact can be overridden and used but closed means they can't directly change the content in abstract method
+Liskov Substitution Principle (LSP) - child should implement the parent class behavior properly.
+Interface Segregation Principle (ISP) - No big Interfaces segregate according to their needs
+Dependency Inversion Principle (DIP) - instead of directly creating object ued interface and then indirectly create object for that
+
+Stack - LIFO - push() adds element to front,pop(),isEmpty(),size(), peek() returns the last element
+Queue - FIFO - enqueue() - adds to end,dequeue() - removes and returns at front, poll() removes from front, peek() returns the front element
+
+
+ rate limiter - protect against DDoS attacks by limiting the rate of incoming requests
+
+thread.join is used to wait for the current thread to finish its execution before going to next steps
+
+Sync call - one task at a time intil the current task gets finished it won't move to the next task
+Async call - performs multiple task simultaneously
+
+HashMap vs Concurrent HashMap Concurrent Hasmap is thread safe means it can be in multiple threads and it has putIfAbsent() feature and a forEach loop these are the features of concurrent HashMap and in Hasmap it allows null values but Concurrent HashMap don't
+
+
+HashMap and HashTable both store key and value pair in Hashtable Hashtable is thread safe but HashMap isn't the keys get hased and it genrateds a hashCode() from the it determines which index to store in HashTable HashMap allows null values but hashtable don't hashtable don't allow null values because the keys must implement hashCode() and Equals() method since null is not an object it can't access these methods
+
+deploy service in production server -
+1.Building the application
+2.Configure server
+3.covert application code to jar file
+4.Configure production server with necessary depemdancies
+5.Deploy application package using Docker Kubernetes
+
+FileOutputStream and ObjectOutputStream to write object in a file and FileInputStream and ObjectInputStream for writing file to object
+
+To Read Text from a file 
+BufferReader b = new BufferReader(new FileReader(location));
+String line 
+while((line = b.readLine()) != null){
+print(line)
+}
+
+
+

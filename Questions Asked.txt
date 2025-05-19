@@ -1,0 +1,242 @@
+Questions Asked
+
+Binary search algo question
+
+Q1. Sorting 1's and 0's effectively
+Ans. Use two pointers approach to sort 1's and 0's effectively in an array of strings.
+Initialize two pointers, one at the beginning and one at the end of the array.
+
+Move the left pointer until it points to a '1' and the right pointer until it points to a '0'.
+
+Swap the elements at the left and right pointers.
+
+Repeat the process until the pointers meet in the middle of the array.
+
+Answered by AI
+Add your answer
+Q2. Fibonacci sequence
+Add your answer
+
+Q1. Springboot architecture
+Add your answer
+Q2. Exception handling
+Add your answer
+
+ Are you willing to allocate
+Ans. Yes, I am willing to allocate time and resources as needed for the job.
+I am committed to meeting project deadlines and delivering high-quality code.
+
+I am open to learning new technologies and tools to improve my skills.
+
+I am willing to work extra hours if necessary to complete tasks on time.
+
+Q1. What is functional interface ? and more questions on java 8
+
+Q1. Questions on core java and mysql
+Add your answer
+Round 4 - HR 
+(1 Question)
+Q1. Expected salary and why you are leaving the current company.
+Add your answer
+
+Given root node and two other node of binary tree. Find the distance between them
+
+Stacks and Queues related
+
+DSA questions based on string
+
+Q1. Database queries
+Add your answer
+Q2. Aptitude questions
+Add your answer
+
+Q1. DSA with basic easy to medium questions
+Add your answer
+Q2. General project related questions
+
+
+Q1. What is collection framework?
+Ans. Collection framework is a unified architecture for representing and manipulating collections of objects in Java.
+It provides interfaces (like List, Set, Map) and classes (like ArrayList, HashSet, HashMap) to store and manipulate groups of objects.
+
+It allows for easy manipulation, sorting, searching, and iteration of collections.
+
+Collections in the framework can store objects of any type, including user-defined classes.
+
+Exa...read more
+
+Answered by AI
+Add your answer
+Q2. What is spring boot dependency injection?
+Ans. Spring Boot dependency injection is a design pattern where objects are passed their dependencies rather than creating them internally.
+In Spring Boot, dependency injection is achieved through the use of @Autowired annotation.
+
+It helps in achieving loose coupling between classes and promotes easier testing and maintenance.
+
+Example: @Autowired private UserService userService; // Injecting UserService dependency
+
+Answered by AI
+Add your answer
+Q3. What is the use of rate limiter?
+Ans. Rate limiter is used to control the rate of incoming requests to a server or API.
+Prevents server overload by limiting the number of requests a client can make in a specific time period
+
+Helps protect against DDoS attacks by limiting the rate of incoming requests
+
+Ensures fair usage of resources by preventing one client from monopolizing server resources
+
+Can be implemented using algorithms like token bucket or leaky bucket
+
+Ex...read more
+
+Answered by AI
+Add your answer
+Q4. What is the mean by thread, how many ways we can create thread?
+Ans. A thread is a lightweight sub-process that allows concurrent execution within a process. Threads can be created in multiple ways.
+Threads can be created by extending the Thread class in Java.
+
+Threads can be created by implementing the Runnable interface in Java.
+
+Threads can be created using thread pools in Java.
+
+Threads can be created using asynchronous functions in JavaScript.
+
+Answered by AI
+Add your answer
+Q5. What is use of thread.join()?
+Ans. thread.join() is used to wait for a thread to finish its execution before moving on to the next steps.
+thread.join() blocks the current thread until the thread it is called on completes its execution.
+
+It is commonly used in multi-threaded applications to ensure that all threads have finished before proceeding.
+
+Without thread.join(), the main thread may continue executing while other threads are still running.
+
+Example: thre...read more
+
+Answered by AI
+Add your answer
+Q6. What is the difference between sync and asynchronous call?
+Ans. Sync call blocks the execution until the response is received, while asynchronous call allows the program to continue executing without waiting for the response.
+Sync call blocks the program execution until the response is received
+
+Asynchronous call allows the program to continue executing without waiting for the response
+
+Sync calls are easier to understand and debug, but can lead to performance issues if used excessively
+
+...read more
+
+Answered by AI
+Add your answer
+Q7. How to deploy your service in production server?
+Ans. Deploying service in production server involves building the application, configuring the server, and monitoring performance.
+Build the application code into a deployable package (e.g. JAR file for Java applications)
+
+Configure the production server with necessary dependencies and environment variables
+
+Deploy the application package to the server using tools like Docker, Kubernetes, or manual deployment scripts
+
+Monitor the ...read more
+
+Answered by AI
+Add your answer
+Q8. What is use of Jenkins and kubernates?
+Ans. Jenkins is a continuous integration tool used for automating software development processes, while Kubernetes is a container orchestration platform for managing containerized applications.
+Jenkins is used for automating the building, testing, and deployment of software projects.
+
+Kubernetes helps in automating the deployment, scaling, and management of containerized applications.
+
+Jenkins can be integrated with Kubernetes t...read more
+
+Answered by AI
+Add your answer
+Q9. What is the difference between fail safe and fail fast
+Ans. Fail safe focuses on ensuring system stability and preventing catastrophic failures, while fail fast prioritizes quick detection and response to errors.
+Fail safe is about designing systems to minimize the impact of failures and ensure stability.
+
+Fail fast is about quickly detecting and responding to errors to prevent further issues.
+
+Fail safe often involves redundancy and error checking mechanisms to prevent catastrophic failures.
+
+Fail fast encourages rapid feedback loops and early error detection to minimize impact.
+
+An example of fail safe is a redundant power supply in a critical system to prevent total shutdown.
+
+An example of fail fast is automated testing in software development to catch bugs early.
+
+
+Write a Java program to sort array in ascending order
+
+
+ Split wise low level design
+
+
+Q1. Bfs shortest path
+Add your answer
+Q2. Sliding window question medium level
+Add your answer
+
+Q1. Design book online store
+Add your answer
+Q2. Solid principles design calculator
+Add your answer
+
+Maximum Sum in a Binary Tree
+
+2 query questions using joins and correlated subquery. 
+
+Difference between multi threading and multi processing
+
+Java OOPS, Exception Handling, Threads and medium level problems.
+
+In 1 just asks basic questions like sorting techniques and pseudo code of them. Asks to write a basic string revese operation and like those some sort of programs. In TR-2, the way you describe your technical skills first they will ask on those topics.
+
+Questions are: 1) Reverse each word in the string. "My name is XYZ" op should be "yM eman si ZYX". 2) Sorting techniques. 3) Command prompt commads like lookup, ipconfig commands. 4) Types of GPT u have used and which is best why? 5) Angle between hour hand and minute hand and derive the formula for that. 6) File program like input shoud be a file and output should be no of paragraphs and lines.
+
+Search for element in Array Login Form at Center of the page with minimal CSS
+
+In Java, how would you diagnose and optimize a high-CPU issue caused by many threads contending for a shared resource
+
+Given root node and two other node of a tree find the distance between them.
+
+Print a 15 digit sequence
+
+Explain React Life Cycle and hooks, Webs sockets?
+
+Count the a in your name.
+
+search and sort algorithms and solid principles
+
+Algorithms, Solid principles and core java concepts
+
+Algorithms, Solid principles and core java concepts
+
+questions about Oops concept and a coding question
+
+binary search algo problem statement
+
+𝗠𝘆 𝗜𝗻𝘁𝗲𝗿𝘃𝗶𝗲𝘄 𝗘𝘅𝗽𝗲𝗿𝗶𝗲𝗻𝗰𝗲 𝗮𝘁 M2P Fintech 𝗕𝗮𝗰𝗸𝗲𝗻𝗱 𝗝𝗮𝘃𝗮 🚀
+
+In my recent job search, I applied to M2P for a Backend Java role via the Instahyre portal. While the final outcome was different, the experience had valuable takeaway.
+
+📌 𝗠𝟮𝗣 𝗜𝗻𝘁𝗲𝗿𝘃𝗶𝗲𝘄 𝗣𝗿𝗼𝗰𝗲𝘀𝘀
+
+After applying, a recruiter reached out, and following an initial screening, my first round was scheduled.
+
+𝗥𝗼𝘂𝗻𝗱 𝟭: 𝗗𝗦𝗔
+📝 Problem 1: Find the path sum from root to leaf in a Binary Tree.
+I was asked to construct a binary tree first and then solve the problem using my local editor.
+Successfully implemented it, passing all test cases.
+🔗 Problem similar to: https://lnkd.in/gqyBuEHh
+
+📝 Problem 2: Group anagrams together from a list of strings.
+Luckily, I had solved this LeetCode Medium problem before, so I coded it quickly.
+🔗 Problem link: https://lnkd.in/gbJZENKp
+
+I knew I had cleared this round, but M2P’s process was extremely slow. After weeks of waiting, Round 2 was finally scheduled.
+
+🔹 𝗥𝗼𝘂𝗻𝗱 𝟮: 𝗟𝗼𝘄-𝗟𝗲𝘃𝗲𝗹 𝗗𝗲𝘀𝗶𝗴𝗻
+I was asked to design a Chess Clock with the following functions:
+✅ startTimer(), pauseTimer(), switchTimer() (switch between players), endTimer().
+✅ This tested my multithreading concepts. I wrote the code, faced some issues, but resolved them after a discussion with the interviewer. (The interviewer was quite helpful here. 😄 )
+
+

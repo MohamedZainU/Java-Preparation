@@ -1,0 +1,11 @@
+Project RTMM
+
+I worked on a Portfolio Risk Assessment Microservice within the Real-Time Margin Monitoring system in Wealth Management. I implemented backend optimizations, and To I used data structures like HashMaps for quick lookups, Heaps(PriorityQueue) for prioritization, and threading strategies to reduce contention during transaction processing.
+
+Project HealthCare
+
+I worked on almost every backend operation for this project. I implemented backend optimizations to improve performance and scalability. I utilized data structures like HashMaps for quick lookups, ensuring efficient data retrieval. I incorporated Stack for managing appointment slot tracking, optimizing scheduling processes. Additionally, I handled exception management
+
+Project Online Exam System
+
+I worked on backend operations, implementing Spring Security with JWT authentication for secure access. I utilized HashMap for efficient lookups, Set for managing unique entries, and MergeSort for optimizing data processing. Additionally, I handled exception management to ensure smooth system functionality and reliable error handling.

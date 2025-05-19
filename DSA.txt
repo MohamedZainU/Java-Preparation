@@ -1,1 +1,190 @@
 DSA
+
+When a function call itself until a specified base case condition is met
+
+more recursive or deep function calls. It results in a runtime error due to stack memory limit
+
+if(arr[mid]<=target){ - upper bound -> if(arr[mid]>=target){ - lower bound - Binary Tree
+
+Binary Search - Time complexity - O(log n)
+
+Tree - root - children - leaf node
+
+a leaf node is nothing but below it has null
+
+a node above is called ancestors
+
+Tree - A tree is a hierarchical data structure made up of nodes.
+Binary Tree - A binary tree is a special type of tree where each node can have at most two children
+Binary Search Tree - A Binary Search Tree (BST) is a sorted binary tree where:
+
+Undirected Graph - there will be connection between both nodes
+Directed Graph - there will be a conection but n one side not the other way 
+
+Cyclic - The node starts from one and ends at the same node s called cyclc the opposite is called asyclic
+edges - means gthe lines between Graphs and the numbers between edges is called weights
+
+So Dp is nothingbut when we make recursion calls we tend to make same operation again but via dp we store that action result so when it is needed tge next time instead of computing again we tend to use the store value
+
+LinkedList won't be in same location dynamic size the node will remember what the next location will be more like it sores the next location address
+
+In Doubly LinkedList you can move in both direction so in here prev as the previous node's address
+
+Node temp = head
+int cnt = 0;
+while(temp != null){  -> length of linkedlist
+temp = temp.next;
+cnt++;
+}
+
+void reverse(){
+Node prev = null, curr = head , next = null;  -> Reverse Singly
+while(curr!=null){
+next = curr.next;
+curr.next = prev;
+prev = curr;
+curr = next;
+}
+head = prev
+}
+
+Climbing Stairs - if (n<=1) return 1 return f(n-1) + f(n-2)
+
+------------------------------------Max Depth in Binary Tree ----- 
+
+int MaxDepth(root)
+
+if root == null return 0
+
+int lh = MaxDepth(root.left);
+int rh = MaxDepth(root.right);
+
+return 1 + Math.max(lh,rh);
+
+-----------------------------------Maximum Sum in a Binary Tree-----
+
+int MaxSum(root)
+
+if(root==null) return 0;
+
+return root.data + MaxSum(root.left) + MaxSum(root.right)
+
+-------------------------------Find the path sum from root to leaf in a Binary Tree-----
+
+int PathSum(root,sum,List<Integer>path)
+
+if root == null return
+
+sum += root.data
+
+if(root.left == null && root.right==null){
+path.add(sum)
+return;
+
+PathSum(root.left,sum,path);
+PathSum(root.right,sum,path);
+}
+
+------------------------------------------------------
+
+Inorder - left data right
+Preorder - data left right
+PostOrder - left right data
+
+Full Binary Tree - Every node has 0 or 2 children
+Complete Binary Tree - all levels are same but atalst it should be as left as possible means in last there the right should be 2 node or 0 
+Perfect Binary Tree - all levels should be same 
+Balanced Binary Tree - the height of the tree should be atmost log of n
+Degenerate Tree - looks straight like a linkedlist
+
+Avoid Overflow Case - low + (high - low)/2
+
+	int arr[] = {4,5,1,2,8};
+        int n = arr.length;
+	for(int i=0;i<n-1;i++){
+	    int min = i;            -> Selection sort
+        for(int j=i;j<n;j++){
+	    if(arr[j]<arr[min]){
+	        min = j;
+             }
+        }
+        int temp = arr[min];
+        arr[min] = arr[i];
+        arr[i] = temp;
+	}
+
+
+        int arr[] = {4,5,1,2,8};
+        int n = arr.length;
+	for(int i=0;i<n;i++){       -> Insertion sort
+           int j = i;
+        while(j>0 && arr[j-1]>arr[j]){
+	   int temp = arr[j];
+           arr[j] = arr[j-1];
+	   arr[j-1] = temp;
+           j--;
+        }
+      }
+
+
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static void mergesort(int arr[]){
+        if(arr.length < 2) return;
+        int n = arr.length;
+        int mid = arr.length/2;
+        int left[] = Arrays.copyOfRange(arr,0,mid);
+        int right[] = Arrays.copyOfRange(arr,mid,n);
+        mergesort(left);
+        mergesort(right);
+        merge(arr,left,right);
+    }
+    
+    public static void merge(int arr[],int left[],int right[]){
+        int k = 0;
+        int i = 0,j= 0;
+        
+        while(i < left.length && j < right.length){
+            if(left[i]<=right[j]){
+                arr[k++] = left[i++];
+            }else{
+                arr[k++] = right[j++];
+            }
+        }
+        
+        while(i < left.length)  arr[k++] = left[i++];
+        while(j < right.length) arr[k++] = right[j++];
+    }
+	public static void main(String[] args) {
+		int[] arr = {38, 27, 43, 3, 9, 82, 10};
+		mergesort(arr);
+		System.out.println(Arrays.toString(arr));
+	}
+}
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	   int[] arr = {1, 0, 1, 0, 1, 0, 0, 1};
+	   int i = 0,j = arr.length - 1;
+	   while(i < j){
+	       if(arr[i]==1 && arr[j]==0){
+	           int temp = arr[i];
+	           arr[i] = arr[j];
+	           arr[j] = temp;
+	       }
+	       if(arr[i]==0) i++;
+	       if(arr[j]==1) j--;
+	   }
+	   System.out.println(Arrays.toString(arr));
+	}
+}
