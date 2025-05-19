@@ -3,7 +3,33 @@ Spring has DI
 
 Spring MVC introduced @Controllers View Rendering(supports multiple UI templates JSP,Thymleaf,Freemarker)
 
-Form Handliung and Validation @RestController REstful Api Session Authentication
+Form Handling and Validation @RestController REstful Api Session Authentication
 
 
 SpringBooT makes configuration much simpler we get embedded Tomcat built in and spring-boot-starter gets all dependencies needed for web applications and is built not only for web applications but for microservices and is environment independent
+
+Features of SpringBoot
+1) Auto Configuration
+2) Spring Boot starter POM - gives dependancies for db security 
+3) Spring Boot CLI
+4) Actuator
+5) Embeded Servers
+
+Create a new Project
+Add dependancies
+annotate
+run
+
+Spring CLI
+run
+test
+jar
+war
+
+To disable AutoConfiguration in certain class @EnableAutoConfiguration(exclude = {classname})
+
+Cosntructor Injection - where the injection happens at parameter of the constructor - Immutable  - Hard to Override
+Setter Injection - where the injection happens at setter method - Dynamic - easier overriding
+
+An Inner Bean refers to a bean that is defined within the scope of another bean's definition. 
+
