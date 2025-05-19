@@ -33,3 +33,4 @@ Setter Injection - where the injection happens at setter method - Dynamic - easi
 
 An Inner Bean refers to a bean that is defined within the scope of another bean's definition. 
 
+Cross origin suppose the backend in in Java and Frontend is in React or Angular then they will be running on different ports and domains browser follows same origin policy so to avoid this we use cors right
