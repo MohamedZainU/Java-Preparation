@@ -56,3 +56,19 @@ will create a object for that interface which we are going to call from one serv
 WebClinet helps in Asynchronous like if a service calls the another service the calling service will wait in synchronous but in async it doesn't wait both happens at same time
 
 Feign Client primarily works synchronously by default, but it can be configured to support asynchronous calls using CompletableFuture or Reactive types 
+
+so we create a url in s string 
+
+
+
+we create a rest template object
+r  = new RestTemplate()
+url = ""
+PostData response = new PostData(Data)
+
+ResponseEntity<String> res = r.getEntity(url,String.class)
+ResponseEntity<String> res = r.postObject(url,response,PostData.class)
+ResponseEntity<String> res = r.put(url,response)
+ResponseEntity<String> res = r.delete(url)
+
+print(res.getBody())
