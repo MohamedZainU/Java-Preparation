@@ -1,0 +1,30 @@
+Functional Interface
+
+Predicate - Represents a boolean-valued function of one argument.
+Consumer - Performs an operation on a single input argument and returns no result.
+Supplier - takes no input and returns a result.
+Function - function that takes one argument and returns a result.
+
+BiPredicate<T, U>	Takes two arguments and returns a boolean
+BiConsumer<T, U>	Takes two arguments and returns nothing
+BiFunction<T, U, R>	Takes two arguments and returns a result
+UnaryOperator<T>	A Function<T, T> — input and output are same
+BinaryOperator<T>	A BiFunction<T, T, T> — both inputs and output are same
+
+
+
+Predicate<String> isLong = str -> str.length() > 5;
+System.out.println(isLong.test("Hello")); // false
+
+
+Consumer<String> printer = str -> System.out.println("Hello, " + str);
+printer.accept("World"); // Hello, World
+
+
+Supplier<Double> randomSupplier = () -> Math.random();
+System.out.println(randomSupplier.get()); // e.g., 0.7234
+
+
+
+Function<String, Integer> lengthFunction = str -> str.length();
+System.out.println(lengthFunction.apply("Java")); // 4

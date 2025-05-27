@@ -1,0 +1,13 @@
+Hi,
+
+Iam Mohamed Zainudeen V A.
+
+I completed my training at the Mahape, Mumbai campus, where I successfully cleared three milestone exams and earned the Oracle Certified Java Programmer (OCJP) certification. After training, I was deployed to the Chennai campus, where we further refreshed our core concepts by building an Online Examination System. using Java SpringBoot
+
+During my training, I worked on two key projects:
+
+A Progressive Project titled Bank Safe Application, where I applied core Java and Spring Boot concepts.
+A Team Project on Healthcare Management, which involved full-stack development using Java, Spring Boot, and Angular.
+These projects helped me gain hands-on experience in building real-time applications and strengthened my understanding of backend and frontend integration.
+
+I have a strong grasp of Java, Spring Boot, and Angular, and I’m always eager to learn new technologies 

@@ -1,0 +1,87 @@
+Angular
+
+Why use Angular
+
+Angular apps are built using components, which are reusable and modular.
+This makes the code organized, testable, and easier to maintain.
+
+npm commands to download Angular
+
+we have each component and each has 1 html 1 css and 1 ts file
+
+app-routing.module.ts - Manages routing and navigation between components.
+app.component.html - The HTML template for the root component 
+app.component.scss - The CSS for root component
+app.component.ts - The Typescript logic for root component
+app.module.ts - its like a configuration to make things work and it has a control over all
+
+3 Types of Event Binding
+
+1. Interpolation - display data from the component to HTML
+2. Property Binding - bind values from your component class to HTML element
+
+<img [src]="imageUrl">
+
+inside ts file there will be a imageUrl variable we take the variable from ts and use in html
+
+3. Event Binding - Based on user action the respective method gets called
+
+4. Two Way Binding
+
+(input)	Event binding for input changes it started working when the user starts to type in input box used for real time search of items
+
+other event binding = (click) (submit) (scroll)
+
+TypeScript
+
+JavaScript is a dynamic interpreted(executes line by line) prgm language primarily used for web applications
+
+Typescript includes all features of JavaScript plus additional features
+
+In Typescript the code we write shows error before even running but in Javascript after running the program only we know if any error has occurred
+
+JavaScript Used for: small projects 
+Typescript Used for: Large scale applications
+
+Angular Single Page Application
+
+
+In Angular there are 2 main types of forms 
+1. Template-Driven Forms
+2. Reactive Forms
+
+
+1. Template-Driven Forms
+
+Form logic is in the HTML template.
+Uses Angular directives like ngModel.
+
+
+Automatically tracks form state and validation. (this input field is required like that)
+
+Best for simple forms.
+
+2. Reactive Forms
+
+Form logic is in the component class.
+Uses FormGroup, FormControl, and FormBuilder.
+Best for complex forms with dynamic behavior.
+More control over validation and state.
+
+There are 3 Directives
+1. Structural directives - *ngIf, *ngFor
+2. Attribute directives - ngClass, ngStyle
+2. Form directives - ngFormGroup ngFormControl
+
+By using that ngClass attribute we can set things for the class file inside HTML itself and ngStyle we can mention styles in HTML itself using ngStyle 
+
+In Reactive forms we can group them by FormGroup FormControl and we can mention the Validations in that we specify a variable name in FormControl and we use that variable name means we can use the form Validation which belongs to that variable name
+
+So to Group the FormControl we use FormGroup inside Formcontrol we mention varaible name and Validation
+
+we use Validators.pattern('^[a-zA-Z0-9_-]{3,15}$') inside form control then we use that for Validation
+
+
+In Template Driven Form we have to mention #form="ngForm" and ngModel required in input field
+
+For pattern in input field we mention the pattern='^[a-zA-Z0-9_-]{3,15}$' like this and below we create a div to show the output of error in that mention['pattern']
